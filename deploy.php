@@ -33,6 +33,7 @@ add('writable_dirs', ['public/uploads']);
 // TODO Include npm.php recipe instead of writing task
 desc('Install npm packages');
 task('npm:install', function () {
+    writeln('<info>Packages installation may take a while..</info>');
     if (has('previous_release')) {
         if (test('[ -d {{previous_release}}/node_modules ]')) {
             run('cp -R {{previous_release}}/node_modules {{release_path}}');
@@ -56,7 +57,7 @@ desc('Propagate configuration file');
 task('config:clone', function () {
     if(test('[ -w {{deploy_path}}/shared/.env ]'))
     {
-        writeln('<info>Config file already shared, check and edit shared_folder/.env</info>');
+        writeln('<comment>Config file already shared, check and edit shared_folder/.env</comment>');
     } else {
         run('cp {{deploy_path}}/.env {{deploy_path}}/shared/.env');
     }
