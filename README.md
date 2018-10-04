@@ -1,10 +1,11 @@
 
-
+## Requirements
 `Nodejs`, `npm`, Linux `acl`, [deployer](https://deployer.org/docs/installation) must be installed.
 
 `php70-memcached` must be installed.<br>
 `Memcached` must be installed and served.
 
+## Start
 Edit `.env` file if needed.<br>
 It will be propageted to the shared folder while `config:clone` task.
 
@@ -24,7 +25,7 @@ Than run:
 $ git clone git@github.com:MIR24/frontend-server-deploy.git
 $ dep deploy test
 ```
-
+## Tips
 Use `--branch` option to deploy specific branch:
 ```
 $ dep deploy test --branch=develop
