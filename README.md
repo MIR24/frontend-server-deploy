@@ -61,3 +61,5 @@ ________
 Normally complete deploy procedure should looks like this:
 
 ![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure.png "Deploy procedure")
+
+Run `dep artisan:key:generate test` if APP_KEY in shared/.env still empty even after deploy complete.
