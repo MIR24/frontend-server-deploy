@@ -6,7 +6,8 @@
 `Memcached` must be installed and served.
 
 ## Start
-Configure `deploy_path` at `hosts.yml`.
+Configure `deploy_path` at `hosts.yml`.<br>
+E.g. if you going to deploy test bensh it could be `/home/www/dev7.mir24.tv/mir24.tv`
 
 Edit `.env` file if needed.<br>
 It will be propageted to the shared folder while `config:clone` task.
