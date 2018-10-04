@@ -15,6 +15,8 @@ localhost:
     dumpfile: mir24.sql
 ```
 
+You can get example dump file [here](https://drive.google.com/open?id=18dVGXePVi4UlgGcGRpOd9aNJcO62QMZh).
+
 Create database via `mysql` console command:
 ```mysql
 mysql> CREATE DATABASE mir24_7 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
