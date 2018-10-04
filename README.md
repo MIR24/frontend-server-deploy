@@ -5,7 +5,7 @@
 `php70-memcached` must be installed.<br>
 `Memcached` must be installed and served.
 
-Edit `.env` file if needed.
+Edit `.env` file if needed.<br>
 It will be propageted to the shared folder while `config:clone` task.
 
 `Cp` mysql dump into root folder of this deploy project, than configure filename at `hosts.yml` e.g.:
