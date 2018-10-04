@@ -1,6 +1,6 @@
 
 
-`Nodejs`, `npm`, `gulp`, `acl`, [deployer](https://deployer.org/docs/installation) must be installed.
+`Nodejs`, `npm`, Linux `acl`, [deployer](https://deployer.org/docs/installation) must be installed.
 
 `php70-memcached` must be installed.<br>
 `Memcached` must be installed and served.
