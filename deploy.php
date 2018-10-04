@@ -18,6 +18,9 @@ set('bin/npm', function () {
     return run('which npm');
 });
 
+//Set releases to keep
+set('keep_releases', 2);
+
 // Shared files/dirs between deploys
 add('shared_files', []);
 add('shared_dirs', []);
@@ -77,12 +80,21 @@ task('db:init', function () {
     }
 });
 
+desc('Generate key');
+task('artisan:key:generate', function () {
+	$output = run('if [ -f {{deploy_path}}/current/artisan ]; then {{bin/php}} {{deploy_path}}/current/artisan key:generate; fi');
+	writeln('<info>' . $output . '</info>');
+});
+
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
+
 after('deploy:update_code', 'db:clone');
 after('deploy:vendors', 'npm:install');
 after('deploy:vendors', 'build');
 after('deploy:lock', 'db:init');
+after('deploy:shared', 'config:clone');
+before('artisan:cache:clear', 'artisan:key:generate');
 
 // Migrate database before symlink new release.
 before('deploy:symlink', 'artisan:migrate');
