@@ -25,6 +25,11 @@ $ git clone git@github.com:MIR24/frontend-server-deploy.git
 $ dep deploy test
 ```
 
+Use `--branch` option to deploy specific branch:
+```
+$ dep deploy test --branch=develop
+```
+
 Use `dep` verbose to examine deploy procedure:
 ```
 $ dep deploy test -v
