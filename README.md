@@ -18,7 +18,7 @@ localhost:
     dumpfile: mir24.sql
 ```
 
-You can get example dump file [here](https://drive.google.com/open?id=18dVGXePVi4UlgGcGRpOd9aNJcO62QMZh).
+You can get example dump file [here](https://drive.google.com/open?id=1L2vvkscPZYIWjAU8QA_TtN3wbay4Yi3A).
 
 Initial project structure looks like this:<br>
 ![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure_3.png "Deploy procedure")
