@@ -33,7 +33,7 @@ add('writable_dirs', ['public/uploads']);
 // TODO Include npm.php recipe instead of writing task
 desc('Install npm packages');
 task('npm:install', function () {
-    writeln('<info>Packages installation may take a while..</info>');
+    writeln('<info>Packages installation may take a while for the first time..</info>');
     if (has('previous_release')) {
         if (test('[ -d {{previous_release}}/node_modules ]')) {
             run('cp -R {{previous_release}}/node_modules {{release_path}}');
@@ -55,7 +55,7 @@ task('db:clone', function () {
 //TODO maybe better path procedure for shared dir
 desc('Propagate configuration file');
 task('config:clone', function () {
-    if(test('[ -w {{deploy_path}}/shared/.env ]'))
+    if(test('[ -s {{deploy_path}}/shared/.env ]'))
     {
         writeln('<comment>Config file already shared, check and edit shared_folder/.env</comment>');
     } else {
