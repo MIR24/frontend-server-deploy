@@ -25,4 +25,11 @@ $ git clone git@github.com:MIR24/frontend-server-deploy.git
 $ dep deploy test
 ```
 
-`git clone` command may lag at `update_code` task due to unknown reasons.
+Use `dep` verbose to examine deploy procedure:
+```
+$ dep deploy test -v
+$ dep deploy test -vv
+$ dep deploy test -vvv
+```
+
+>**`git clone` command may lag at `update_code` task due to still unknown reasons.**
