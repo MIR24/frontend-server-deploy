@@ -23,6 +23,7 @@ mysql> CREATE DATABASE mir24_7 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 Than run:
 ```
 $ git clone git@github.com:MIR24/frontend-server-deploy.git
+$ cd frontend-server-deploy
 $ dep deploy test
 ```
 ## Tips
