@@ -39,7 +39,16 @@ $ dep deploy test -vv
 $ dep deploy test -vvv
 ```
 
+
 >**`git clone` command may lag at `update_code` task due to still unknown reasons.**
+________
+
+
+You can cancel deploy at the sql dump excuting to prevent unwelcome db drop:
+
+![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure_2.png "Deploy procedure")
+
+________
 
 Normally complete deploy procedure should looks like this:
 
