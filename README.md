@@ -6,6 +6,8 @@
 `Memcached` must be installed and served.
 
 ## Start
+Configure `deploy_path` at `hosts.yml`.
+
 Edit `.env` file if needed.<br>
 It will be propageted to the shared folder while `config:clone` task.
 
@@ -14,6 +16,8 @@ It will be propageted to the shared folder while `config:clone` task.
 localhost:
     dumpfile: mir24.sql
 ```
+
+You can get example dump file [here](https://drive.google.com/open?id=18dVGXePVi4UlgGcGRpOd9aNJcO62QMZh).
 
 Create database via `mysql` console command:
 ```mysql
