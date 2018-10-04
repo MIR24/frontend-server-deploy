@@ -44,7 +44,7 @@ $ dep deploy test -vvv
 ________
 
 
-You can cancel deploy at the sql dump excuting to prevent unwelcome db drop:
+You can cancel deploy at the sql dump executing stage to prevent unwelcome DB drop:
 
 ![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure_2.png "Deploy procedure")
 
