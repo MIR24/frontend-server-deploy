@@ -40,3 +40,7 @@ $ dep deploy test -vvv
 ```
 
 >**`git clone` command may lag at `update_code` task due to still unknown reasons.**
+
+Normally complete deploy procedure should looks like this:
+
+![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure.png "Deploy procedure")
