@@ -29,6 +29,7 @@ localhost:
     dumpfile: mir24_7.sql
 ```
 
+Configure path to .env file `env_example_file`.<br>
 Edit `.env` file if needed (e.g. to configure DB connection for application).<br>
 It will be propageted to the shared folder while `config:clone` task.
 
