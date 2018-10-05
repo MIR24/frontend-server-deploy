@@ -59,7 +59,7 @@ task('config:clone', function () {
     {
         writeln('<comment>Config file already shared, check and edit shared_folder/.env</comment>');
     } else {
-        run('cp {{deploy_path}}/.env {{deploy_path}}/shared/.env');
+        run('cp {{env_example_file}} {{deploy_path}}/shared/.env');
     }
 });
 
