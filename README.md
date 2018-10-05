@@ -18,9 +18,6 @@ $ git clone git@github.com:MIR24/frontend-server-deploy.git /home/www/dev7.mir24
 ```
 Configure `deploy_path` and DB connection at `hosts.yml`.<br>
 
-Edit `.env` file if needed (e.g. to configure DB connection for application).<br>
-It will be propageted to the shared folder while `config:clone` task.
-
 Download initial dump file (you can get example dump file [here](https://drive.google.com/open?id=1L2vvkscPZYIWjAU8QA_TtN3wbay4Yi3A)).<br>
 Copy mysql dump into the root folder of this deploy project:
 ```
@@ -31,6 +28,10 @@ Specify dump filename at `hosts.yml` e.g.:
 localhost:
     dumpfile: mir24.sql
 ```
+
+Edit `.env` file if needed (e.g. to configure DB connection for application).<br>
+It will be propageted to the shared folder while `config:clone` task.
+
 Initial project structure should look like this:<br>
 ![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure_3.png "Deploy procedure")
 
