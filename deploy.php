@@ -65,15 +65,15 @@ task('config:clone', function () {
 
 desc('Uploading initial dump may took a minute');
 task('db:init', function () {
-    writeln('<info>Check if {{deploy_path}}/{{dumpfile}} exists</info>');
-    if(test('[ ! -r {{deploy_path}}/{{dumpfile}} ]')) {
+    writeln('<info>Check if {{dumpfile}} exists</info>');
+    if(test('[ ! -r {{dumpfile}} ]')) {
         writeln('<error>DB dump file not found, upload file, than configure hosts</error>');
         writeln('<comment>Stop deployment</comment>');
         invoke('deploy:unlock');
         die;
     }
     if(askConfirmation("Going to overwrite existing database, confirm..", false))
-        run('cd {{deploy_path}} && mysql -h{{dbhost}} -u{{dbuser}} -p{{dbpass}} mir24_7 < mir24_7.sql');
+        run('cd {{deploy_path}} && mysql -h{{dbhost}} -u{{dbuser}} -p{{dbpass}} mir24_7 < {{dumpfile}}');
     else{
         writeln('<comment>Stop deployment</comment>');
         invoke('deploy:unlock');
