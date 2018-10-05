@@ -26,7 +26,7 @@ $ cp /tmp/mir24_7.sql /home/www/dev7.mir24.tv/frontend-server-deploy/
 Specify dump filename at `hosts.yml`:
 ```yml
 localhost:
-    dumpfile: mir24.sql
+    dumpfile: mir24_7.sql
 ```
 
 Edit `.env` file if needed (e.g. to configure DB connection for application).<br>
