@@ -23,7 +23,7 @@ Copy mysql dump into the root folder of this deploy project:
 ```
 $ cp /tmp/mir24_7.sql /home/www/dev7.mir24.tv/frontend-server-deploy/
 ```
-Specify dump filename at `hosts.yml` e.g.:
+Specify dump filename at `hosts.yml`:
 ```yml
 localhost:
     dumpfile: mir24.sql
