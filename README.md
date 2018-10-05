@@ -3,35 +3,40 @@
 `Nodejs`, `npm`, Linux `acl`, [deployer](https://deployer.org/docs/installation) must be installed.
 
 `php*-memcached` must be installed.<br>
-`Memcached` must be installed and served.
+`Memcached` and `mysql-server` must be installed and served.
 
 ## Start
-Configure `deploy_path` at `hosts.yml`.<br>
-E.g. if you going to deploy test bensh it could be `/home/www/dev7.mir24.tv/mir24.tv`
-
-Edit `.env` file if needed.<br>
-It will be propageted to the shared folder while `config:clone` task.
-
-`Cp` mysql dump into root folder of this deploy project, than configure filename at `hosts.yml` e.g.:
-```yml
-localhost:
-    dumpfile: mir24.sql
-```
-
-You can get example dump file [here](https://drive.google.com/open?id=1L2vvkscPZYIWjAU8QA_TtN3wbay4Yi3A).
-
-Initial project structure looks like this:<br>
-![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure_3.png "Deploy procedure")
 
 Create database via `mysql` console command:
 ```mysql
 mysql> CREATE DATABASE mir24_7 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```
-
-Than run:
+Clone deploy project:
 ```
-$ git clone git@github.com:MIR24/frontend-server-deploy.git
-$ cd frontend-server-deploy
+$ git clone git@github.com:MIR24/frontend-server-deploy.git /home/www/dev7.mir24.tv/frontend-server-deploy
+```
+Configure `deploy_path` at `hosts.yml`.<br>
+If you going to deploy test bench it could be `/home/www/dev7.mir24.tv/frontend-server-deploy`
+
+Edit `.env` file if needed (e.g. to configure DB connection).<br>
+It will be propageted to the shared folder while `config:clone` task.
+
+Download initial dump file (you can get example dump file [here](https://drive.google.com/open?id=1L2vvkscPZYIWjAU8QA_TtN3wbay4Yi3A)).<br>
+`Cp` mysql dump into root folder of this deploy project:
+```
+$ cp /tmp/mir24_7.sql /home/www/dev7.mir24.tv/frontend-server-deploy/
+```
+Configure filename at `hosts.yml` e.g.:
+```yml
+localhost:
+    dumpfile: mir24.sql
+```
+Initial project structure looks like this:<br>
+![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure_3.png "Deploy procedure")
+
+Now run:
+```
+$ cd /home/www/dev7.mir24.tv/frontend-server-deploy
 $ dep deploy test
 ```
 ## Tips
