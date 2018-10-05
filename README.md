@@ -74,7 +74,7 @@ ________
 
 Run `dep artisan:key:generate test` if `APP_KEY` in `shared/.env` still empty even after deploy complete.
 
-##### TODO
+## TODO
 Deployer default procedure clones repo each time into the new `release/*` folder. 
 It's not neccesary for test bench.
 Better is to write deploy recipe with `git checkout` `git pull` to use it for test stage deploy.
