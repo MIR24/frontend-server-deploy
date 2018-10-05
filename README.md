@@ -22,7 +22,7 @@ Edit `.env` file if needed (e.g. to configure DB connection).<br>
 It will be propageted to the shared folder while `config:clone` task.
 
 Download initial dump file (you can get example dump file [here](https://drive.google.com/open?id=1L2vvkscPZYIWjAU8QA_TtN3wbay4Yi3A)).<br>
-`Cp` mysql dump into root folder of this deploy project:
+Copy mysql dump into root folder of this deploy project:
 ```
 $ cp /tmp/mir24_7.sql /home/www/dev7.mir24.tv/frontend-server-deploy/
 ```
@@ -70,3 +70,8 @@ Normally complete deploy procedure should looks like this:
 ![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure.png "Deploy procedure")
 
 Run `dep artisan:key:generate test` if `APP_KEY` in `shared/.env` still empty even after deploy complete.
+
+##### TODO
+Deployer default procedure clones repo each time into the new `release/*` folder. 
+It's not neccesary for test bench.
+Better is to write deploy recipe with `git checkout` `git pull` to use it for test stage deploy.
