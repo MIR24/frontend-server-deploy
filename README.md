@@ -76,4 +76,4 @@ Deployer default procedure clones repo each time into the new `release/*` folder
 It's not neccesary for test bench.
 Better is to write deploy recipe with `git checkout` `git pull` to use it for test stage deploy.
 
-DB connection being configured twice: for deploy at `hosts.yml` and fot application at `.env`. Better is to inflate configuration files with DB connection credentials from unified source.
+DB connection being configured twice: for deploy at `hosts.yml` and for application at `.env`. Better is to inflate configuration files with DB connection credentials from unified source.
