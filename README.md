@@ -6,6 +6,7 @@
 `Memcached` and `mysql-server` must be installed and served.
 
 ## Start
+Assume you're you going to deploy test bench at `/home/www/dev7.mir24.tv/frontend-server-deploy`
 
 Create database via `mysql` console command:
 ```mysql
@@ -16,7 +17,6 @@ Clone deploy project:
 $ git clone git@github.com:MIR24/frontend-server-deploy.git /home/www/dev7.mir24.tv/frontend-server-deploy
 ```
 Configure `deploy_path` at `hosts.yml`.<br>
-If you going to deploy test bench it could be `/home/www/dev7.mir24.tv/frontend-server-deploy`
 
 Edit `.env` file if needed (e.g. to configure DB connection).<br>
 It will be propageted to the shared folder while `config:clone` task.
@@ -31,7 +31,7 @@ Configure filename at `hosts.yml` e.g.:
 localhost:
     dumpfile: mir24.sql
 ```
-Initial project structure looks like this:<br>
+Initial project structure should look like this:<br>
 ![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure_3.png "Deploy procedure")
 
 Now run:
@@ -39,6 +39,8 @@ Now run:
 $ cd /home/www/dev7.mir24.tv/frontend-server-deploy
 $ dep deploy test
 ```
+Configure web-server document root at `/home/www/dev7.mir24.tv/frontend-server-deploy/current/public`
+
 ## Tips
 Use `--branch` option to deploy specific branch:
 ```
