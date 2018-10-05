@@ -55,7 +55,7 @@ $ dep deploy test -vvv
 ```
 
 
->**`git clone` command may lag at `update_code` task due to still unknown reasons.**
+`git clone` command may lag at `update_code` task due to still unknown reasons.
 ________
 
 
