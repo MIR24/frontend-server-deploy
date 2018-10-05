@@ -77,3 +77,6 @@ It's not neccesary for test bench.
 Better is to write deploy recipe with `git checkout` `git pull` to use it for test stage deploy.
 
 DB connection being configured twice: for deploy at `hosts.yml` and for application at `.env`. Better is to inflate configuration files with DB connection credentials from unified source.
+
+Test bench folder contains whole deploy project which is not needed for bench to function.
+Better is to build application at build folder than move built to the bench folder.
