@@ -3,54 +3,68 @@
 `Nodejs`, `npm`, Linux `acl`, [deployer](https://deployer.org/docs/installation) must be installed.
 
 `php*-memcached` must be installed.<br>
-`Memcached` must be installed and served.
+`Memcached` and `mysql-server` must be installed and served.
 
 ## Start
-Configure `deploy_path` at `hosts.yml`.<br>
-E.g. if you going to deploy test bensh it could be `/home/www/dev7.mir24.tv/mir24.tv`
-
-Edit `.env` file if needed.<br>
-It will be propageted to the shared folder while `config:clone` task.
-
-`Cp` mysql dump into root folder of this deploy project, than configure filename at `hosts.yml` e.g.:
-```yml
-localhost:
-    dumpfile: mir24.sql
-```
-
-You can get example dump file [here](https://drive.google.com/open?id=18dVGXePVi4UlgGcGRpOd9aNJcO62QMZh).
-
-Initial project structure looks like this:<br>
-![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure_3.png "Deploy procedure")
+Assume you're you going to deploy test bench at `/home/www/dev7.mir24.tv/frontend-server-deploy`
 
 Create database via `mysql` console command:
 ```mysql
 mysql> CREATE DATABASE mir24_7 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```
-
-Than run:
+Clone deploy project:
 ```
-$ git clone git@github.com:MIR24/frontend-server-deploy.git
-$ cd frontend-server-deploy
+$ git clone git@github.com:MIR24/frontend-server-deploy.git /home/www/dev7.mir24.tv/frontend-server-deploy
+```
+Configure `deploy_path` and DB connection at `hosts.yml`.<br>
+
+Download initial dump file (you can get example dump file [here](https://drive.google.com/open?id=1L2vvkscPZYIWjAU8QA_TtN3wbay4Yi3A)).<br>
+Copy mysql dump into the root folder of this deploy project:
+```
+$ cp /tmp/mir24_7.sql /home/www/dev7.mir24.tv/frontend-server-deploy/
+```
+Specify dump filename at `hosts.yml`:
+```yml
+localhost:
+    dumpfile: mir24_7.sql
+```
+
+Edit `.env` file if needed (e.g. to configure DB connection for application).<br>
+It will be propageted to the shared folder while `config:clone` task.
+
+Initial project structure should look like this:<br>
+![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure_3.png "Deploy procedure")
+
+Now run:
+```
+$ cd /home/www/dev7.mir24.tv/frontend-server-deploy
 $ dep deploy test
 ```
-## Tips
+
+Normally complete deploy procedure should look like this:
+
+![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure.png "Deploy procedure")
+
+Configure web-server document root at `/home/www/dev7.mir24.tv/frontend-server-deploy/current/public`
+
+## Routine
 Use `--branch` option to deploy specific branch:
 ```
 $ dep deploy test --branch=develop
 ```
 
-Use `dep` verbose to examine deploy procedure:
+## Tips
+Use `dep` verbose to examine deploy procedure, e.g. `-v` shows timing for each task execution.
+Three verbose levels available:
 ```
 $ dep deploy test -v
 $ dep deploy test -vv
 $ dep deploy test -vvv
 ```
-
-
->**`git clone` command may lag at `update_code` task due to still unknown reasons.**
 ________
 
+`git clone` command may lag at `update_code` task due to still unknown reasons.
+________
 
 You can cancel deploy at the sql dump executing stage to prevent unwelcome DB drop:
 
@@ -58,8 +72,14 @@ You can cancel deploy at the sql dump executing stage to prevent unwelcome DB dr
 
 ________
 
-Normally complete deploy procedure should looks like this:
-
-![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure.png "Deploy procedure")
-
 Run `dep artisan:key:generate test` if `APP_KEY` in `shared/.env` still empty even after deploy complete.
+
+## TODO
+Deployer default procedure clones repo each time into the new `release/*` folder. 
+It's not neccesary for test bench.
+Better is to write deploy recipe with `git checkout` `git pull` to use it for test stage deploy.
+
+DB connection being configured twice: for deploy at `hosts.yml` and for application at `.env`. Better is to inflate configuration files with DB connection credentials from unified source.
+
+Test bench folder contains whole deploy project which is not needed for bench to function.
+Better is to build application at build folder than move built to the bench folder.
