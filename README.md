@@ -39,35 +39,37 @@ Now run:
 $ cd /home/www/dev7.mir24.tv/frontend-server-deploy
 $ dep deploy test
 ```
+
+Normally complete deploy procedure should look like this:
+
+![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure.png "Deploy procedure")
+
 Configure web-server document root at `/home/www/dev7.mir24.tv/frontend-server-deploy/current/public`
 
-## Tips
+## Routine
 Use `--branch` option to deploy specific branch:
 ```
 $ dep deploy test --branch=develop
 ```
 
-Use `dep` verbose to examine deploy procedure:
+## Tips
+Use `dep` verbose to examine deploy procedure, e.g. `-v` shows timing for each task execution.
+Three verbose levels available:
 ```
 $ dep deploy test -v
 $ dep deploy test -vv
 $ dep deploy test -vvv
 ```
-
+________
 
 `git clone` command may lag at `update_code` task due to still unknown reasons.
 ________
-
 
 You can cancel deploy at the sql dump executing stage to prevent unwelcome DB drop:
 
 ![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure_2.png "Deploy procedure")
 
 ________
-
-Normally complete deploy procedure should look like this:
-
-![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure.png "Deploy procedure")
 
 Run `dep artisan:key:generate test` if `APP_KEY` in `shared/.env` still empty even after deploy complete.
 
