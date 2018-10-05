@@ -22,7 +22,7 @@ Edit `.env` file if needed (e.g. to configure DB connection).<br>
 It will be propageted to the shared folder while `config:clone` task.
 
 Download initial dump file (you can get example dump file [here](https://drive.google.com/open?id=1L2vvkscPZYIWjAU8QA_TtN3wbay4Yi3A)).<br>
-Copy mysql dump into root folder of this deploy project:
+Copy mysql dump into the root folder of this deploy project:
 ```
 $ cp /tmp/mir24_7.sql /home/www/dev7.mir24.tv/frontend-server-deploy/
 ```
