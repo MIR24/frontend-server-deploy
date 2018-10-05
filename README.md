@@ -65,7 +65,7 @@ You can cancel deploy at the sql dump executing stage to prevent unwelcome DB dr
 
 ________
 
-Normally complete deploy procedure should looks like this:
+Normally complete deploy procedure should look like this:
 
 ![Deploy procedure](https://raw.githubusercontent.com/MIR24/frontend-server-deploy/master/images/deploy_procedure.png "Deploy procedure")
 
